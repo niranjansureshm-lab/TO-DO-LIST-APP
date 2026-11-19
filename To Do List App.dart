@@ -1,306 +1,581 @@
-<!DOCTYPE html>
-<!-- saved from url=(0024)https://dartpad.dev/?s=5 -->
-<html data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.ͼ1.cm-focused {outline: 1px dotted #212121;}
-.ͼ1 {position: relative !important; box-sizing: border-box; display: flex !important; flex-direction: column;}
-.ͼ1 .cm-scroller {display: flex !important; align-items: flex-start !important; font-family: monospace; line-height: 1.4; height: 100%; overflow-x: auto; position: relative; z-index: 0; overflow-anchor: none;}
-.ͼ1 .cm-content[contenteditable=true] {-webkit-user-modify: read-write-plaintext-only;}
-.ͼ1 .cm-content {margin: 0; flex-grow: 2; flex-shrink: 0; display: block; white-space: pre; word-wrap: normal; box-sizing: border-box; min-height: 100%; padding: 4px 0; outline: none;}
-.ͼ1 .cm-lineWrapping {white-space: pre-wrap; white-space: break-spaces; word-break: break-word; overflow-wrap: anywhere; flex-shrink: 1;}
-.ͼ2 .cm-content {caret-color: black;}
-.ͼ3 .cm-content {caret-color: white;}
-.ͼ1 .cm-line {display: block; padding: 0 2px 0 6px;}
-.ͼ1 .cm-layer > * {position: absolute;}
-.ͼ1 .cm-layer {position: absolute; left: 0; top: 0; contain: size style;}
-.ͼ2 .cm-selectionBackground {background: #d9d9d9;}
-.ͼ3 .cm-selectionBackground {background: #222;}
-.ͼ2.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {background: #d7d4f0;}
-.ͼ3.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {background: #233;}
-.ͼ1 .cm-cursorLayer {pointer-events: none;}
-.ͼ1.cm-focused > .cm-scroller > .cm-cursorLayer {animation: steps(1) cm-blink 1.2s infinite;}
-@keyframes cm-blink {50% {opacity: 0;}}
-@keyframes cm-blink2 {50% {opacity: 0;}}
-.ͼ1 .cm-cursor, .ͼ1 .cm-dropCursor {border-left: 1.2px solid black; margin-left: -0.6px; pointer-events: none;}
-.ͼ1 .cm-cursor {display: none;}
-.ͼ3 .cm-cursor {border-left-color: #ddd;}
-.ͼ1 .cm-selectionHandle {background-color: currentColor; width: 1.5px;}
-.ͼ1 .cm-selectionHandle-start::before, .ͼ1 .cm-selectionHandle-end::before {content: ""; background-color: inherit; border-radius: 50%; width: 8px; height: 8px; position: absolute; left: -3.25px;}
-.ͼ1 .cm-selectionHandle-start::before {top: -8px;}
-.ͼ1 .cm-selectionHandle-end::before {bottom: -8px;}
-.ͼ1 .cm-dropCursor {position: absolute;}
-.ͼ1.cm-focused > .cm-scroller > .cm-cursorLayer .cm-cursor {display: block;}
-.ͼ1 .cm-iso {unicode-bidi: isolate;}
-.ͼ1 .cm-announced {position: fixed; top: -10000px;}
-@media print {.ͼ1 .cm-announced {display: none;}}
-.ͼ2 .cm-activeLine {background-color: #cceeff44;}
-.ͼ3 .cm-activeLine {background-color: #99eeff33;}
-.ͼ2 .cm-specialChar {color: red;}
-.ͼ3 .cm-specialChar {color: #f78;}
-.ͼ1 .cm-gutters {flex-shrink: 0; display: flex; height: 100%; box-sizing: border-box; z-index: 200;}
-.ͼ1 .cm-gutters-before {inset-inline-start: 0;}
-.ͼ1 .cm-gutters-after {inset-inline-end: 0;}
-.ͼ2 .cm-gutters.cm-gutters-before {border-right-width: 1px;}
-.ͼ2 .cm-gutters.cm-gutters-after {border-left-width: 1px;}
-.ͼ2 .cm-gutters {background-color: #f5f5f5; color: #6c6c6c; border: 0px solid #ddd;}
-.ͼ3 .cm-gutters {background-color: #333338; color: #ccc;}
-.ͼ1 .cm-gutter {display: flex !important; flex-direction: column; flex-shrink: 0; box-sizing: border-box; min-height: 100%; overflow: hidden;}
-.ͼ1 .cm-gutterElement {box-sizing: border-box;}
-.ͼ1 .cm-lineNumbers .cm-gutterElement {padding: 0 3px 0 5px; min-width: 20px; text-align: right; white-space: nowrap;}
-.ͼ2 .cm-activeLineGutter {background-color: #e2f2ff;}
-.ͼ3 .cm-activeLineGutter {background-color: #222227;}
-.ͼ1 .cm-panels {box-sizing: border-box; position: sticky; left: 0; right: 0; z-index: 300;}
-.ͼ2 .cm-panels {background-color: #f5f5f5; color: black;}
-.ͼ2 .cm-panels-top {border-bottom: 1px solid #ddd;}
-.ͼ2 .cm-panels-bottom {border-top: 1px solid #ddd;}
-.ͼ3 .cm-panels {background-color: #333338; color: white;}
-.ͼ1 .cm-dialog label {font-size: 80%;}
-.ͼ1 .cm-dialog {padding: 2px 19px 4px 6px; position: relative;}
-.ͼ1 .cm-dialog-close {position: absolute; top: 3px; right: 4px; background-color: inherit; border: none; font: inherit; font-size: 14px; padding: 0;}
-.ͼ1 .cm-tab {display: inline-block; overflow: hidden; vertical-align: bottom;}
-.ͼ1 .cm-widgetBuffer {vertical-align: text-top; height: 1em; width: 0; display: inline;}
-.ͼ1 .cm-placeholder {color: #888; display: inline-block; vertical-align: top; user-select: none;}
-.ͼ1 .cm-highlightSpace {background-image: radial-gradient(circle at 50% 55%, #aaa 20%, transparent 5%); background-position: center;}
-.ͼ1 .cm-highlightTab {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="20"><path stroke="%23888" stroke-width="1" fill="none" d="M1 10H196L190 5M190 15L196 10M197 4L197 16"/></svg>'); background-size: auto 100%; background-position: right 90%; background-repeat: no-repeat;}
-.ͼ1 .cm-trailingSpace {background-color: #ff332255;}
-.ͼ1 .cm-button {vertical-align: middle; color: inherit; font-size: 70%; padding: .2em 1em; border-radius: 1px;}
-.ͼ2 .cm-button:active {background-image: linear-gradient(#b4b4b4, #d0d3d6);}
-.ͼ2 .cm-button {background-image: linear-gradient(#eff1f5, #d9d9df); border: 1px solid #888;}
-.ͼ3 .cm-button:active {background-image: linear-gradient(#111, #333);}
-.ͼ3 .cm-button {background-image: linear-gradient(#393939, #111); border: 1px solid #888;}
-.ͼ1 .cm-textfield {vertical-align: middle; color: inherit; font-size: 70%; border: 1px solid silver; padding: .2em .5em;}
-.ͼ2 .cm-textfield {background-color: white;}
-.ͼ3 .cm-textfield {border: 1px solid #555; background-color: inherit;}
-.ͼ1 .cm-lsp-documentation p, .ͼ1 .cm-lsp-documentation pre {margin: 2px 0;}
-.ͼ1 .cm-lsp-documentation {padding: 0 7px;}
-.ͼ1 .cm-lsp-signature-tooltip .cm-lsp-documentation {padding: 0; font-size: 80%;}
-.ͼ1 .cm-lsp-signature-tooltip .cm-lsp-signature-num {font-family: monospace; position: absolute; left: 2px; top: 4px; font-size: 70%; line-height: 1.3;}
-.ͼ1 .cm-lsp-signature-tooltip .cm-lsp-signature {font-family: monospace; text-indent: 1em hanging;}
-.ͼ1 .cm-lsp-signature-tooltip .cm-lsp-active-parameter {font-weight: bold;}
-.ͼ1 .cm-lsp-signature-tooltip {padding: 2px 6px; border-radius: 2.5px; position: relative; max-width: 30em; max-height: 10em; overflow-y: scroll;}
-.ͼ1 .cm-lsp-signature-multiple {padding-left: 1.5em;}
-.ͼ1 .cm-panel.cm-lsp-rename-panel label {font-size: 80%;}
-.ͼ1 .cm-panel.cm-lsp-rename-panel [name=close] {position: absolute; top: 0; bottom: 0; right: 4px; background-color: inherit; border: none; font: inherit; padding: 0;}
-.ͼ1 .cm-panel.cm-lsp-rename-panel {padding: 2px 6px 4px; position: relative;}
-.ͼ1 .cm-lsp-message button[type=submit] {display: block;}
-.ͼ1 .cm-lsp-reference-panel .cm-lsp-reference-file {font-weight: bold;}
-.ͼ1 .cm-lsp-reference-panel .cm-lsp-reference[aria-selected] {background-color: #0077ee44;}
-.ͼ1 .cm-lsp-reference-panel .cm-lsp-reference {cursor: pointer;}
-.ͼ1 .cm-lsp-reference-panel .cm-lsp-reference-line {opacity: 0.7;}
-.ͼ1 .cm-lsp-reference-panel {font-family: monospace; white-space: pre; padding: 3px 6px; max-height: 120px; overflow: auto;}
-.ͼ1 .cm-diagnostic {padding: 3px 6px 3px 8px; margin-left: -1px; display: block; white-space: pre-wrap;}
-.ͼ1 .cm-diagnostic-error {border-left: 5px solid #d11;}
-.ͼ1 .cm-diagnostic-warning {border-left: 5px solid orange;}
-.ͼ1 .cm-diagnostic-info {border-left: 5px solid #999;}
-.ͼ1 .cm-diagnostic-hint {border-left: 5px solid #66d;}
-.ͼ1 .cm-diagnosticAction {font: inherit; border: none; padding: 2px 4px; background-color: #444; color: white; border-radius: 3px; margin-left: 8px; cursor: pointer;}
-.ͼ1 .cm-diagnosticSource {font-size: 70%; opacity: 0.7;}
-.ͼ1 .cm-lintRange {background-position: left bottom; background-repeat: repeat-x; padding-bottom: 0.7px;}
-.ͼ1 .cm-lintRange-error {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22%23d11%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>');}
-.ͼ1 .cm-lintRange-warning {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22orange%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>');}
-.ͼ1 .cm-lintRange-info {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22%23999%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>');}
-.ͼ1 .cm-lintRange-hint {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22%2366d%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>');}
-.ͼ1 .cm-lintRange-active {background-color: #ffdd9980;}
-.ͼ1 .cm-tooltip-lint {padding: 0; margin: 0;}
-.ͼ1 .cm-lintPoint:after {content: ""; position: absolute; bottom: 0; left: -2px; border-left: 3px solid transparent; border-right: 3px solid transparent; border-bottom: 4px solid #d11;}
-.ͼ1 .cm-lintPoint {position: relative;}
-.ͼ1 .cm-lintPoint-warning:after {border-bottom-color: orange;}
-.ͼ1 .cm-lintPoint-info:after {border-bottom-color: #999;}
-.ͼ1 .cm-lintPoint-hint:after {border-bottom-color: #66d;}
-.ͼ1 .cm-panel.cm-panel-lint ul [aria-selected] u {text-decoration: underline;}
-.ͼ1 .cm-panel.cm-panel-lint ul [aria-selected] {background-color: #ddd;}
-.ͼ1 .cm-panel.cm-panel-lint ul:focus [aria-selected] {background: #bdf; background-color: Highlight; color: white; color: HighlightText;}
-.ͼ1 .cm-panel.cm-panel-lint ul u {text-decoration: none;}
-.ͼ1 .cm-panel.cm-panel-lint ul {max-height: 100px; overflow-y: auto; padding: 0; margin: 0;}
-.ͼ1 .cm-panel.cm-panel-lint [name=close] {position: absolute; top: 0; right: 2px; background: inherit; border: none; font: inherit; padding: 0; margin: 0;}
-.ͼ1 .cm-panel.cm-panel-lint {position: relative;}
-.ͼ3 .cm-lintRange-active {background-color: #86714a80;}
-.ͼ3 .cm-panel.cm-panel-lint ul [aria-selected] {background-color: #2e343e;}
-.ͼ1 .cm-gutter-lint .cm-gutterElement {padding: .2em;}
-.ͼ1 .cm-gutter-lint {width: 1.4em;}
-.ͼ1 .cm-lint-marker {width: 1em; height: 1em;}
-.ͼ1 .cm-lint-marker-info {content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">%3Cpath%20fill%3D%22%23aaf%22%20stroke%3D%22%2377e%22%20stroke-width%3D%226%22%20stroke-linejoin%3D%22round%22%20d%3D%22M5%205L35%205L35%2035L5%2035Z%22%2F%3E</svg>');}
-.ͼ1 .cm-lint-marker-warning {content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">%3Cpath%20fill%3D%22%23fe8%22%20stroke%3D%22%23fd7%22%20stroke-width%3D%226%22%20stroke-linejoin%3D%22round%22%20d%3D%22M20%206L37%2035L3%2035Z%22%2F%3E</svg>');}
-.ͼ1 .cm-lint-marker-error {content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%2215%22%20fill%3D%22%23f87%22%20stroke%3D%22%23f43%22%20stroke-width%3D%226%22%2F%3E</svg>');}
-.ͼ1 .cm-selectionMatch {background-color: #99ff7780;}
-.ͼ1 .cm-searchMatch .cm-selectionMatch {background-color: transparent;}
-.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > li, .ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > completion-section {padding: 1px 3px; line-height: 1.2;}
-.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > li {overflow-x: hidden; text-overflow: ellipsis; cursor: pointer;}
-.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > completion-section {display: list-item; border-bottom: 1px solid silver; padding-left: 0.5em; opacity: 0.7;}
-.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul {font-family: monospace; white-space: nowrap; overflow: hidden auto; max-width: 700px; max-width: min(700px, 95vw); min-width: 250px; max-height: 10em; height: 100%; list-style: none; margin: 0; padding: 0;}
-.ͼ2 .cm-tooltip-autocomplete ul li[aria-selected] {background: #17c; color: white;}
-.ͼ2 .cm-tooltip-autocomplete-disabled ul li[aria-selected] {background: #777;}
-.ͼ3 .cm-tooltip-autocomplete ul li[aria-selected] {background: #347; color: white;}
-.ͼ3 .cm-tooltip-autocomplete-disabled ul li[aria-selected] {background: #444;}
-.ͼ1 .cm-completionListIncompleteTop:before, .ͼ1 .cm-completionListIncompleteBottom:after {content: "···"; opacity: 0.5; display: block; text-align: center;}
-.ͼ1 .cm-tooltip.cm-completionInfo {position: absolute; padding: 3px 9px; width: max-content; max-width: 400px; box-sizing: border-box; white-space: pre-line;}
-.ͼ1 .cm-completionInfo.cm-completionInfo-left {right: 100%;}
-.ͼ1 .cm-completionInfo.cm-completionInfo-right {left: 100%;}
-.ͼ1 .cm-completionInfo.cm-completionInfo-left-narrow {right: 30px;}
-.ͼ1 .cm-completionInfo.cm-completionInfo-right-narrow {left: 30px;}
-.ͼ2 .cm-snippetField {background-color: #00000022;}
-.ͼ3 .cm-snippetField {background-color: #ffffff22;}
-.ͼ1 .cm-snippetFieldPosition {vertical-align: text-top; width: 0; height: 1.15em; display: inline-block; margin: 0 -0.7px -.7em; border-left: 1.4px dotted #888;}
-.ͼ1 .cm-completionMatchedText {text-decoration: underline;}
-.ͼ1 .cm-completionDetail {margin-left: 0.5em; font-style: italic;}
-.ͼ1 .cm-completionIcon {font-size: 90%; width: .8em; display: inline-block; text-align: center; padding-right: .6em; opacity: 0.6; box-sizing: content-box;}
-.ͼ1 .cm-completionIcon-function:after, .ͼ1 .cm-completionIcon-method:after {content: 'ƒ';}
-.ͼ1 .cm-completionIcon-class:after {content: '○';}
-.ͼ1 .cm-completionIcon-interface:after {content: '◌';}
-.ͼ1 .cm-completionIcon-variable:after {content: '𝑥';}
-.ͼ1 .cm-completionIcon-constant:after {content: '𝐶';}
-.ͼ1 .cm-completionIcon-type:after {content: '𝑡';}
-.ͼ1 .cm-completionIcon-enum:after {content: '∪';}
-.ͼ1 .cm-completionIcon-property:after {content: '□';}
-.ͼ1 .cm-completionIcon-keyword:after {content: '🔑︎';}
-.ͼ1 .cm-completionIcon-namespace:after {content: '▢';}
-.ͼ1 .cm-completionIcon-text:after {content: 'abc'; font-size: 50%; vertical-align: middle;}
-.ͼ1 .cm-tooltip {z-index: 500; box-sizing: border-box;}
-.ͼ2 .cm-tooltip {border: 1px solid #bbb; background-color: #f5f5f5;}
-.ͼ2 .cm-tooltip-section:not(:first-child) {border-top: 1px solid #bbb;}
-.ͼ3 .cm-tooltip {background-color: #333338; color: white;}
-.ͼ1 .cm-tooltip-arrow:before, .ͼ1 .cm-tooltip-arrow:after {content: ''; position: absolute; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent;}
-.ͼ1 .cm-tooltip-above .cm-tooltip-arrow:before {border-top: 7px solid #bbb;}
-.ͼ1 .cm-tooltip-above .cm-tooltip-arrow:after {border-top: 7px solid #f5f5f5; bottom: 1px;}
-.ͼ1 .cm-tooltip-above .cm-tooltip-arrow {bottom: -7px;}
-.ͼ1 .cm-tooltip-below .cm-tooltip-arrow:before {border-bottom: 7px solid #bbb;}
-.ͼ1 .cm-tooltip-below .cm-tooltip-arrow:after {border-bottom: 7px solid #f5f5f5; top: 1px;}
-.ͼ1 .cm-tooltip-below .cm-tooltip-arrow {top: -7px;}
-.ͼ1 .cm-tooltip-arrow {height: 7px; width: 14px; position: absolute; z-index: -1; overflow: hidden;}
-.ͼ3 .cm-tooltip .cm-tooltip-arrow:before {border-top-color: #333338; border-bottom-color: #333338;}
-.ͼ3 .cm-tooltip .cm-tooltip-arrow:after {border-top-color: transparent; border-bottom-color: transparent;}
-.ͼ1.cm-focused .cm-matchingBracket {background-color: #328c8252;}
-.ͼ1.cm-focused .cm-nonmatchingBracket {background-color: #bb555544;}
-.ͼ1 .cm-foldPlaceholder {background-color: #eee; border: 1px solid #ddd; color: #888; border-radius: .2em; margin: 0 1px; padding: 0 1px; cursor: pointer;}
-.ͼ1 .cm-foldGutter span {padding: 0 1px; cursor: pointer;}
-.ͼ16 .cm-semantic-token * {color: inherit !important; font-style: inherit !important; font-weight: inherit !important; text-decoration: inherit !important;}
-.ͼp {color: var(--cm-keyword);}
-.ͼq {color: var(--cm-comment);}
-.ͼr {color: var(--cm-builtin);}
-.ͼs {color: var(--cm-atom);}
-.ͼt {color: var(--cm-variable);}
-.ͼu {color: var(--cm-variable2);}
-.ͼv {color: var(--cm-string);}
-.ͼw {color: var(--cm-string2);}
-.ͼx {color: var(--cm-number);}
-.ͼy {color: var(--cm-attribute);}
-.ͼz {color: var(--cm-qualifier);}
-.ͼ10 {color: var(--cm-meta);}
-.ͼ11 {color: var(--cm-header); font-weight: bold;}
-.ͼ12 {color: var(--cm-operator);}
-.ͼ13 {color: var(--cm-def);}
-.ͼ14 {color: var(--cm-tag);}
-.ͼ15 {color: var(--cm-property);}
-.ͼo {font-family: 'Roboto Mono', monospace; font-weight: 400; background-color: #fff; color: #4a4a4a; color-scheme: light; --cm-builtin: #4a4a4a; --cm-comment: #5F6368; --cm-keyword: #007a27; --cm-atom: #2f4960; --cm-variable: #0E161F; --cm-variable2: #a54a78; --cm-string: #bc0056; --cm-string2: #983ab3; --cm-number: #00786d; --cm-attribute: #0E161F; --cm-qualifier: #d32923; --cm-meta: #00786d; --cm-header: #0E161F; --cm-operator: #4a4a4a; --cm-def: #4a4a4a; --cm-tag: #007a27; --cm-property: #0E161F;}
-.ͼo .cm-content {caret-color: #4a4a4a;}
-.ͼo .cm-cursor, .ͼo .cm-dropCursor {border-left: 1px solid #4a4a4a;}
-.ͼo .cm-selectionBackground, .ͼo .cm-content ::selection {background-color: #e8e8e8 !important;}
-.ͼo .cm-gutters {background-color: #fff !important; color: #d0d0d2; border-right: none;}
-.ͼo.cm-focused .cm-matchingBracket, .ͼo.cm-focused .cm-nonmatchingBracket {outline: 1px solid #606060; color: #a54a78 !important;}
-.ͼo .cm-activeLine {background-color: rgba(27, 134, 245, 0.035);}
-.ͼo .cm-activeLineGutter {background-color: rgba(27, 134, 245, 0.07);}
-.ͼo .cm-panels {background-color: #fff; color: #4a4a4a;}
-.ͼo .cm-lsp-reference-panel {color: #4a4a4a;}
-[data-theme="dark"] .ͼo {background-color: #0E161F; color: #FFFFFF; color-scheme: dark; --cm-builtin: #FFFFFF; --cm-comment: #909CC3; --cm-keyword: #50E191; --cm-atom: #FF916E; --cm-variable: #00D2FA; --cm-variable2: #FF916E; --cm-string: #FA557D; --cm-string2: #FF00FA; --cm-number: #909090; --cm-attribute: #00D2FA; --cm-qualifier: #FF9B00; --cm-meta: #909090; --cm-header: #00D2FA; --cm-operator: #FFFFFF; --cm-def: #FFFFFF; --cm-tag: #50E191; --cm-property: #00D2FA;}
-[data-theme="dark"] .ͼo .cm-content {caret-color: white;}
-[data-theme="dark"] .ͼo .cm-cursor, [data-theme="dark"] .ͼo .cm-dropCursor {border-left: 1px solid white;}
-[data-theme="dark"] .ͼo .cm-selectionBackground, [data-theme="dark"] .ͼo .cm-content ::selection {background-color: #23364D !important;}
-[data-theme="dark"] .ͼo .cm-gutters {background-color: #0E161F !important; color: #909090; border-right: none;}
-[data-theme="dark"] .ͼo.cm-focused .cm-matchingBracket, [data-theme="dark"] .ͼo.cm-focused .cm-nonmatchingBracket {outline: 1px solid #606060; color: #FF2D64 !important;}
-[data-theme="dark"] .ͼo .cm-activeLine {background-color: rgba(32, 143, 253, 0.035);}
-[data-theme="dark"] .ͼo .cm-activeLineGutter {background-color: rgba(32, 143, 253, 0.07);}
-[data-theme="dark"] .ͼo .cm-panels {background-color: #0E161F; color: #FFFFFF;}
-[data-theme="dark"] .ͼo .cm-lsp-reference-panel {color: #FFFFFF;}
-.ͼo .cm-foldPlaceholder {background-color: rgb(82, 192, 155); color: #000; font-weight: bold; border: none; padding: 0 3px;}
-.ͼo .cm-tooltip.cm-rename-message-tooltip {border: 1px solid #1B86F5 !important; border-radius: 3px !important; background-color: #ffffff !important; color: #1E1E1E !important; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important; max-width: max-content !important; width: max-content !important; white-space: nowrap !important; padding: 3px 8px !important; font-size: 12px !important; line-height: 1.3 !important; user-select: none; cursor: default;}
-.ͼo .cm-tooltip.cm-rename-message-tooltip .cm-tooltip-arrow::before {border-top-color: #1B86F5 !important; border-bottom-color: #1B86F5 !important;}
-.ͼo .cm-tooltip.cm-rename-message-tooltip .cm-tooltip-arrow::after {border-top-color: #1B86F5 !important; border-bottom-color: #1B86F5 !important;}
-[data-theme="dark"] .ͼo .cm-tooltip.cm-rename-message-tooltip {border-color: #208FFD !important; background-color: #1E1E1E !important; color: #FFFFFF !important;}
-[data-theme="dark"] .ͼo .cm-tooltip.cm-rename-message-tooltip .cm-tooltip-arrow::before {border-top-color: #208FFD !important; border-bottom-color: #208FFD !important;}
-[data-theme="dark"] .ͼo .cm-tooltip.cm-rename-message-tooltip .cm-tooltip-arrow::after {border-top-color: #208FFD !important; border-bottom-color: #208FFD !important;}
-.ͼ5 {color: #404740;}
-.ͼ6 {text-decoration: underline;}
-.ͼ7 {text-decoration: underline; font-weight: bold;}
-.ͼ8 {font-style: italic;}
-.ͼ9 {font-weight: bold;}
-.ͼa {text-decoration: line-through;}
-.ͼb {color: #708;}
-.ͼc {color: #219;}
-.ͼd {color: #164;}
-.ͼe {color: #a11;}
-.ͼf {color: #e40;}
-.ͼg {color: #00f;}
-.ͼh {color: #30a;}
-.ͼi {color: #085;}
-.ͼj {color: #167;}
-.ͼk {color: #256;}
-.ͼl {color: #00c;}
-.ͼm {color: #940;}
-.ͼn {color: #f00;}
-.ͼ4 .cm-line ::selection, .ͼ4 .cm-line::selection {background-color: transparent !important;}
-.ͼ4 .cm-line {caret-color: transparent !important;}
-.ͼ4 .cm-content :focus::selection, .ͼ4 .cm-content :focus ::selection {background-color: Highlight !important;}
-.ͼ4 .cm-content :focus {caret-color: initial !important;}
-.ͼ4 .cm-content {caret-color: transparent !important;}
-</style>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="An online Dart editor with support for console and Flutter apps.">
-        <meta name="color-scheme" content="light dark">
-        <meta name="scaffolded-by" content="https://github.com/schultek/jaspr">
+import 'package:flutter/material.dart';
 
-        <title>DartPad</title>
-        <link rel="icon" type="image/png" href="https://dartpad.dev/favicon.png">
+void main() {
+  runApp(const TodoApp());
+}
 
-        <!-- Loads the generated CSS file. -->
-        <!-- This contains all @css declarations from your components. -->
-        <link rel="stylesheet" href="./To Do List App_files/main.css">
+// ================= APP =================
 
-        <!-- Fonts & Icons -->
-        <style>
-            @font-face {
-                font-family: 'Google Sans Flex';
-                font-style: normal;
-                font-weight: 400 700;
-                font-stretch: 100%;
-                font-display: swap;
-                src: url('fonts/GoogleSansFlex.woff2') format('woff2');
-            }
-        </style>
-        <link rel="preconnect" href="https://fonts.googleapis.com/">
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-        <link rel="preconnect" href="https://www.gstatic.com/">
-        <link href="./To Do List App_files/css2" rel="stylesheet">
-        <link rel="stylesheet" href="./To Do List App_files/css2(1)">
-        <link href="./To Do List App_files/cookienotificationbar.min.css" rel="stylesheet">
+class TodoApp extends StatelessWidget {
+  const TodoApp({super.key});
 
-        <!-- Theme initialization - runs before dart code loads -->
-        <script src="./To Do List App_files/theme.js.download"></script>
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'To-Do List App',
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF0B1120),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF3B82F6),
+          brightness: Brightness.dark,
+        ),
+      ),
+      home: const TodoHomePage(),
+    );
+  }
+}
 
-        <!-- Uses the existing DartPad GA4 stream; embeds wait for interaction. -->
-        <script defer="" src="./To Do List App_files/ga.js.download"></script>
+// ================= TASK MODEL =================
 
-        <!-- CodeMirror must be installed on globalThis before Dart interop loads. -->
-        <script defer="" src="./To Do List App_files/codemirror-dart.bundle.js.download"></script>
+class TodoTask {
+  final int id;
+  final String title;
+  bool isCompleted;
 
-        <!-- Loads and runs the compiled 'main.client.dart' file. -->
-        <!-- Can be changed to any other '.client.dart' file inside /lib. -->
-        <script defer="" src="./To Do List App_files/main.client.dart.js.download"></script>
-    <script async="" src="./To Do List App_files/js"></script></head>
-    <body>
-        <!-- App component is mounted into #app so Jaspr does not evict external DOM elements -->
-        <div id="app"><div class="app-shell"><div id="app-bar-panel" class="panel-visibility"><div class="app-bar-container"><div class="app-bar"><div class="app-bar-preview-ribbon-wrapper"><div class="app-bar-preview-ribbon">BETA</div></div><div class="app-bar-left"><img class="app-bar-logo" alt="Dart" src="./To Do List App_files/dart-192.svg"><span class="app-bar-title">DartPad</span><div class="app-bar-divider"></div><div class="dropdown dropdown-menu-anchor" data-expanded="false"><button class="app-bar-text-button" aria-label="New" title="Start new Dart/Flutter project from preset"><span class="material-symbols-outlined" style="font-size: 18px">add_circle</span><span class="app-bar-button-label">New</span></button></div></div><div class="app-bar-spacer"></div><div class="app-bar-right"><button class="icon-button" aria-label="Theme Toggle"><span class="material-symbols-outlined" style="font-size: 24px">light_mode</span></button><div class="dropdown dropdown-menu-anchor" data-expanded="false"><button class="icon-button" aria-label="More options"><span class="material-symbols-outlined" style="font-size: 28px">apps</span></button></div></div></div></div></div><div class="app-workspace-container"><div class="app-workspace"><div class="workspace-layout"><div id="editor-file-tree" class="file-tree-panel" style="flex-grow: 0; flex-basis: 200px"><aside class="file-tree"><div class="file-tree-header"><span class="file-tree-title">Explorer</span><div class="file-tree-header-buttons"><div class="dropdown dropdown-menu-anchor" data-expanded="false"><button class="file-tree-add-button" title="New file or folder" aria-label="New file or folder"><span class="material-symbols-outlined" style="font-size: 16px">add</span></button></div><button class="file-tree-collapse-button" title="Hide file tree" aria-label="Hide file tree"><span class="material-symbols-outlined" style="font-size: 16px">chevron_left</span></button></div></div><div class="file-tree-list" role="tree" aria-label="Project files"><div class="file-tree-folder" style="--tree-depth: 0"><div class="file-tree-item folder" style="--tree-depth: 0" title="lib" tabindex="0" role="treeitem" aria-expanded="true" draggable="true"><button class="file-tree-disclosure" title="Collapse" aria-label="Collapse lib"><span class="material-symbols-outlined" style="font-size: 16px">expand_more</span></button><svg class="file-tree-icon folder-icon" fill="currentColor" width="12" height="12" aria-hidden="true" viewBox="0 0 24 24"><path d="M22.073 4.900L22.073 4.900L12.148 4.900L12.148 3.950Q12.148 3.125 11.585 2.563Q11.023 2 10.198 2L10.198 2L0.048 2L0.048 22L23.948 22L23.948 6.850Q23.998 6.025 23.448 5.462Q22.898 4.900 22.073 4.900Z"></path></svg><span class="file-tree-name">lib</span></div><div class="file-tree-folder-children"><div class="file-tree-item file active" style="--tree-depth: 1" title="lib/main.dart" tabindex="0" role="treeitem" aria-disabled="false" draggable="true"><span class="file-tree-disclosure spacer"></span><svg class="file-tree-icon file-icon-dart" fill="currentColor" width="12" height="12" aria-hidden="true" viewBox="0 0 24 24"><path d="M23.840 19.720L23.840 9.880L18.880 4.960L14.920 1Q14.600 0.640 14.060 0.400Q13.520 0.160 13.080 0.160L13.080 0.160Q12.120 0.160 11.560 0.480L11.560 0.480L4.640 3.960L4.160 4.200L0.480 11.880Q0.160 12.560 0.160 13.040L0.160 13.040Q0.160 14.240 1 15.080L1 15.080L9.760 23.840L19.720 23.840L19.720 19.720L23.840 19.720ZM5.480 4.120L11.840 0.920Q12.280 0.640 13.080 0.640L13.080 0.640Q13.400 0.640 13.840 0.860Q14.280 1.080 14.560 1.360L14.560 1.360L17.360 4.160L17.280 4.160Q16.920 4.120 16.560 4.120L16.560 4.120L5.480 4.120ZM19.200 19.560L19.200 23.320L9.960 23.320L5.320 18.680Q4.880 18.240 4.760 17.900Q4.640 17.560 4.640 16.720L4.640 16.720L4.640 5L19.200 19.560Z"></path></svg><span class="file-tree-name">main.dart</span></div></div></div><div class="file-tree-item file" style="--tree-depth: 0" title="README.md" tabindex="0" role="treeitem" aria-disabled="false" draggable="true"><span class="file-tree-disclosure spacer"></span><svg class="file-tree-icon file-icon" fill="currentColor" width="12" height="12" aria-hidden="true" viewBox="0 0 24 24"><path d="M23.780 10.803L23.818 10.803Q23.628 8.029 21.918 5.331L21.918 5.331Q20.664 3.469 18.916 2.234Q17.168 0.999 15.002 0.467L15.002 0.467Q13.748 0.125 12.646 0.125L12.646 0.125L10.746 0.125Q7.326 0.467 4.438 2.595L4.438 2.595Q1.132 5.369 0.296 9.245L0.296 9.245Q0.068 10.423 0.068 11.145L0.068 11.145L0.068 13.045Q0.448 16.351 2.082 18.631L2.082 18.631Q4.172 21.709 7.288 22.925L7.288 22.925Q9.454 23.685 11.202 23.875L11.202 23.875L13.102 23.875Q17.434 23.495 20.474 20.303L20.474 20.303Q22.944 17.833 23.666 14.375L23.666 14.375Q23.742 14.071 23.799 13.539Q23.856 13.007 23.932 12.703L23.932 12.703L23.932 11.411Q23.780 11.145 23.780 10.803L23.780 10.803ZM11.924 21.975L11.924 21.975Q9.188 21.975 6.870 20.569L6.870 20.569Q4.590 19.239 3.279 16.921Q1.968 14.603 1.968 11.867Q1.968 9.131 3.317 6.813Q4.666 4.495 6.984 3.165L6.984 3.165Q9.378 1.759 12.152 1.759L12.152 1.759Q14.850 1.835 17.149 3.184Q19.448 4.533 20.778 6.813L20.778 6.813Q22.146 9.131 22.108 11.867Q22.070 14.603 20.683 16.921Q19.296 19.239 17.016 20.569L17.016 20.569Q14.660 21.975 11.924 21.975ZM15.496 18.289L14.774 18.289Q14.432 18.289 14.166 18.175L14.166 18.175Q14.014 18.175 13.900 17.947L13.900 17.947Q13.862 17.833 13.824 17.795L13.824 17.795L13.824 10.081Q12.874 10.157 11.031 10.214Q9.188 10.271 8.238 10.309L8.238 10.309L8.238 11.259L9.416 11.259Q9.758 11.259 9.948 11.487Q10.138 11.715 10.138 12.095L10.138 12.095L10.138 17.567Q10.138 18.289 9.416 18.289L9.416 18.289L8.352 18.289L8.352 19.239L15.496 19.239L15.496 18.289ZM11.696 8.675L11.696 8.675Q12.570 8.675 13.140 8.067Q13.710 7.459 13.710 6.642Q13.710 5.825 13.102 5.217Q12.494 4.609 11.658 4.609Q10.822 4.609 10.252 5.217Q9.682 5.825 9.682 6.642Q9.682 7.459 10.290 8.067Q10.898 8.675 11.696 8.675Z"></path></svg><span class="file-tree-name">README.md</span></div><div class="file-tree-item file" style="--tree-depth: 0" title="analysis_options.yaml" tabindex="0" role="treeitem" aria-disabled="false" draggable="true"><span class="file-tree-disclosure spacer"></span><svg class="file-tree-icon file-icon-yaml" fill="currentColor" width="12" height="12" aria-hidden="true" viewBox="0 0 24 24"><path d="M13.615 15.116L13.415 16.076Q13.095 16.076 12.575 16.156L12.575 16.156Q12.215 16.196 12.055 16.196L12.055 16.196L9.815 16.196Q10.055 13.516 10.495 8.196Q10.935 2.876 11.175 0.196L11.175 0.196L12.655 0.196Q14.375 0.116 15.175 0.196L15.175 0.196Q15.455 0.196 15.735 0.556Q16.015 0.916 15.935 1.196L15.935 1.196Q15.655 3.196 14.935 7.236L14.935 7.236L14.415 9.956Q14.215 11.636 13.615 15.116L13.615 15.116ZM13.935 21.076L13.935 21.076Q14.015 22.116 13.255 22.936Q12.495 23.756 11.295 23.836Q10.095 23.916 9.115 23.256Q8.135 22.596 8.055 21.596L8.055 21.596Q7.975 20.436 8.735 19.676Q9.495 18.916 10.815 18.836Q12.135 18.756 12.995 19.356Q13.855 19.956 13.935 21.076Z"></path></svg><span class="file-tree-name">analysis_options.yaml</span></div><div class="file-tree-item file" style="--tree-depth: 0" title="pubspec.lock" tabindex="0" role="treeitem" aria-disabled="false" draggable="true"><span class="file-tree-disclosure spacer"></span><svg class="file-tree-icon file-icon" fill="currentColor" width="12" height="12" aria-hidden="true" viewBox="0 0 24 24"><path d="M1.082 16.876L1.082 14.014L22.918 14.014L22.918 16.876L1.082 16.876ZM1.082 9.986L1.082 7.071L13.272 7.071L13.272 9.986L1.082 9.986ZM1.082 3.096L1.082 0.181L22.918 0.181L22.918 3.096L1.082 3.096ZM1.082 23.819L1.082 20.904L17.300 20.904L17.300 23.819L1.082 23.819Z"></path></svg><span class="file-tree-name">pubspec.lock</span></div><div class="file-tree-item file" style="--tree-depth: 0" title="pubspec.yaml" tabindex="0" role="treeitem" aria-disabled="false" draggable="true"><span class="file-tree-disclosure spacer"></span><svg class="file-tree-icon file-icon-yaml" fill="currentColor" width="12" height="12" aria-hidden="true" viewBox="0 0 24 24"><path d="M13.615 15.116L13.415 16.076Q13.095 16.076 12.575 16.156L12.575 16.156Q12.215 16.196 12.055 16.196L12.055 16.196L9.815 16.196Q10.055 13.516 10.495 8.196Q10.935 2.876 11.175 0.196L11.175 0.196L12.655 0.196Q14.375 0.116 15.175 0.196L15.175 0.196Q15.455 0.196 15.735 0.556Q16.015 0.916 15.935 1.196L15.935 1.196Q15.655 3.196 14.935 7.236L14.935 7.236L14.415 9.956Q14.215 11.636 13.615 15.116L13.615 15.116ZM13.935 21.076L13.935 21.076Q14.015 22.116 13.255 22.936Q12.495 23.756 11.295 23.836Q10.095 23.916 9.115 23.256Q8.135 22.596 8.055 21.596L8.055 21.596Q7.975 20.436 8.735 19.676Q9.495 18.916 10.815 18.836Q12.135 18.756 12.995 19.356Q13.855 19.956 13.935 21.076Z"></path></svg><span class="file-tree-name">pubspec.yaml</span></div></div></aside></div><div class="drag-handle horizontal"></div><div class="workspace-content editor-shell-content" style="flex-grow: 1; flex-basis: 0"><main class="editor-shell editor-host" style="flex-grow: 0.7; flex-basis: 0"><div class="editor-area" style="flex-grow: 0.8499999999999999; flex-basis: 0"><div id="editor-navigation-panel" class="panel-visibility"><div class="editor-tab-bar"><div class="editor-tab active" title="lib/main.dart" tabindex="0" role="tab" aria-selected="true"><span class="editor-tab-name">main.dart</span><button class="editor-tab-action close" title="Close tab" aria-label="Close main.dart"><span class="material-symbols-outlined" style="font-size: 12px">close</span></button></div></div><div class="editor-breadcrumbs" title="lib/main.dart" aria-label="Current file: lib/main.dart"><span class="editor-breadcrumb-item editor-breadcrumb-folder">lib</span><span class="editor-breadcrumb-separator"><span class="material-symbols-outlined" style="font-size: 14px">chevron_right</span></span><span class="editor-breadcrumb-item editor-breadcrumb-file">main.dart</span></div></div><div class="editor-stack"><div class="editor-tab-slot active"><div class="editor-container"><div class="cm-editor ͼ1 ͼ2 ͼ4 ͼo ͼ16"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div class="cm-gutters cm-gutters-before" aria-hidden="true" style="min-height: 11415.2px; position: sticky;"><div class="cm-gutter cm-lineNumbers"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;">999</div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 9921.6px;">507</div><div class="cm-gutterElement" style="height: 19.6px;">508</div><div class="cm-gutterElement" style="height: 19.6px;">509</div><div class="cm-gutterElement" style="height: 19.6px;">510</div><div class="cm-gutterElement" style="height: 19.6px;">511</div><div class="cm-gutterElement" style="height: 19.6px;">512</div><div class="cm-gutterElement" style="height: 19.6px;">513</div><div class="cm-gutterElement" style="height: 19.6px;">514</div><div class="cm-gutterElement" style="height: 19.6px;">515</div><div class="cm-gutterElement" style="height: 19.6px;">516</div><div class="cm-gutterElement" style="height: 19.6px;">517</div><div class="cm-gutterElement" style="height: 19.6px;">518</div><div class="cm-gutterElement" style="height: 19.6px;">519</div><div class="cm-gutterElement" style="height: 19.6px;">520</div><div class="cm-gutterElement" style="height: 19.6px;">521</div><div class="cm-gutterElement" style="height: 19.6px;">522</div><div class="cm-gutterElement" style="height: 19.6px;">523</div><div class="cm-gutterElement" style="height: 19.6px;">524</div><div class="cm-gutterElement" style="height: 19.6px;">525</div><div class="cm-gutterElement" style="height: 19.6px;">526</div><div class="cm-gutterElement" style="height: 19.6px;">527</div><div class="cm-gutterElement" style="height: 19.6px;">528</div><div class="cm-gutterElement" style="height: 19.6px;">529</div><div class="cm-gutterElement" style="height: 19.6px;">530</div><div class="cm-gutterElement" style="height: 19.6px;">531</div><div class="cm-gutterElement" style="height: 19.6px;">532</div><div class="cm-gutterElement" style="height: 19.6px;">533</div><div class="cm-gutterElement" style="height: 19.6px;">534</div><div class="cm-gutterElement" style="height: 19.6px;">535</div><div class="cm-gutterElement" style="height: 19.6px;">536</div><div class="cm-gutterElement" style="height: 19.6px;">537</div><div class="cm-gutterElement" style="height: 19.6px;">538</div><div class="cm-gutterElement" style="height: 19.6px;">539</div><div class="cm-gutterElement" style="height: 19.6px;">540</div><div class="cm-gutterElement" style="height: 19.6px;">541</div><div class="cm-gutterElement" style="height: 19.6px;">542</div><div class="cm-gutterElement" style="height: 19.6px;">543</div><div class="cm-gutterElement" style="height: 19.6px;">544</div><div class="cm-gutterElement" style="height: 19.6px;">545</div><div class="cm-gutterElement" style="height: 19.6px;">546</div><div class="cm-gutterElement" style="height: 19.6px;">547</div><div class="cm-gutterElement" style="height: 19.6px;">548</div><div class="cm-gutterElement" style="height: 19.6px;">549</div><div class="cm-gutterElement" style="height: 19.6px;">550</div><div class="cm-gutterElement" style="height: 19.6px;">551</div><div class="cm-gutterElement" style="height: 19.6px;">552</div><div class="cm-gutterElement" style="height: 19.6px;">553</div><div class="cm-gutterElement" style="height: 19.6px;">554</div><div class="cm-gutterElement" style="height: 19.6px;">555</div><div class="cm-gutterElement" style="height: 19.6px;">556</div><div class="cm-gutterElement" style="height: 19.6px;">557</div><div class="cm-gutterElement" style="height: 19.6px;">558</div><div class="cm-gutterElement" style="height: 19.6px;">559</div><div class="cm-gutterElement" style="height: 19.6px;">560</div><div class="cm-gutterElement" style="height: 19.6px;">561</div><div class="cm-gutterElement" style="height: 19.6px;">562</div><div class="cm-gutterElement" style="height: 19.6px;">563</div><div class="cm-gutterElement" style="height: 19.6px;">564</div><div class="cm-gutterElement" style="height: 19.6px;">565</div><div class="cm-gutterElement" style="height: 19.6px;">566</div><div class="cm-gutterElement" style="height: 19.6px;">567</div><div class="cm-gutterElement" style="height: 19.6px;">568</div><div class="cm-gutterElement" style="height: 19.6px;">569</div><div class="cm-gutterElement" style="height: 19.6px;">570</div><div class="cm-gutterElement" style="height: 19.6px;">571</div><div class="cm-gutterElement" style="height: 19.6px;">572</div><div class="cm-gutterElement" style="height: 19.6px;">573</div><div class="cm-gutterElement" style="height: 19.6px;">574</div><div class="cm-gutterElement" style="height: 19.6px;">575</div><div class="cm-gutterElement" style="height: 19.6px;">576</div><div class="cm-gutterElement" style="height: 19.6px;">577</div><div class="cm-gutterElement" style="height: 19.6px;">578</div><div class="cm-gutterElement" style="height: 19.6px;">579</div><div class="cm-gutterElement" style="height: 19.6px;">580</div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.6px;">581</div><div class="cm-gutterElement" style="height: 19.6px;">582</div></div><div class="cm-gutter cm-foldGutter"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;"><span title="Unfold line">›</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 10000px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 235.2px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 19.6px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 19.6px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 58.8px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 156.8px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 19.6px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 156.8px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 137.2px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 19.6px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement" style="height: 19.6px; margin-top: 215.6px;"><span title="Fold line">⌄</span></div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.6px; margin-top: 58.8px;"></div></div><div class="cm-gutter cm-gutter-lint"><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.6px; margin-top: 11372px;"></div></div></div><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" data-language="dart" style="tab-size: 4;" aria-autocomplete="list"><div class="cm-gap" style="height: 9917.6px;"></div><div class="cm-line">                ],</div><div class="cm-line">              ),</div><div class="cm-line">            ),</div><div class="cm-line"><br></div><div class="cm-line">            <span class="ͼu cm-semantic-token"><span class="ͼt">Icon</span></span>(</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">task</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">isCompleted</span></span> <span class="ͼ12">?</span> <span class="ͼu cm-semantic-token"><span class="ͼt">Icons</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">check_circle</span></span> : <span class="ͼu cm-semantic-token"><span class="ͼt">Icons</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">circle_outlined</span></span>,</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">color</span></span>: <span class="ͼt cm-semantic-token"><span class="ͼt">task</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">isCompleted</span></span> <span class="ͼ12">?</span> <span class="ͼu cm-semantic-token"><span class="ͼt">Colors</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">greenAccent</span></span> : <span class="ͼu cm-semantic-token"><span class="ͼt">Colors</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">white24</span></span>,</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">size</span></span>: <span class="ͼx cm-semantic-token"><span class="ͼx">20</span></span>,</div><div class="cm-line">            ),</div><div class="cm-line">          ],</div><div class="cm-line">        ),</div><div class="cm-line">      ),</div><div class="cm-line">    );</div><div class="cm-line">  }</div><div class="cm-line"><br></div><div class="cm-line">  <span class="ͼq cm-semantic-token"><span class="ͼq">// ================= EMPTY STATE =================</span></span></div><div class="cm-line"><br></div><div class="cm-line">  <span class="ͼu cm-semantic-token"><span class="ͼt">Widget</span></span> <span class="ͼt cm-semantic-token"><span class="ͼt">buildEmptyState</span></span>() {</div><div class="cm-line">    <span class="ͼp cm-semantic-token"><span class="ͼp">return</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">Center</span></span>(</div><div class="cm-line">      <span class="ͼt cm-semantic-token"><span class="ͼt">child</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">Column</span></span>(</div><div class="cm-line">        <span class="ͼt cm-semantic-token"><span class="ͼt">mainAxisAlignment</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">MainAxisAlignment</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">center</span></span>,</div><div class="cm-line">        <span class="ͼt cm-semantic-token"><span class="ͼt">children</span></span>: [</div><div class="cm-line">          <span class="ͼu cm-semantic-token"><span class="ͼt">Container</span></span>(</div><div class="cm-line">            <span class="ͼt cm-semantic-token"><span class="ͼt">padding</span></span>: <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">EdgeInsets</span></span>.<span class="ͼt cm-semantic-token"><span class="ͼt">all</span></span>(<span class="ͼx cm-semantic-token"><span class="ͼx">25</span></span>),</div><div class="cm-line">            <span class="ͼt cm-semantic-token"><span class="ͼt">decoration</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">BoxDecoration</span></span>(</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">color</span></span>: <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">Color</span></span>(<span class="ͼx cm-semantic-token"><span class="ͼx">0xFF17233D</span></span>),</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">shape</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">BoxShape</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">circle</span></span>,</div><div class="cm-line">            ),</div><div class="cm-line">            <span class="ͼt cm-semantic-token"><span class="ͼt">child</span></span>: <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">Icon</span></span>(</div><div class="cm-line">              <span class="ͼu cm-semantic-token"><span class="ͼt">Icons</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">checklist_rounded</span></span>,</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">size</span></span>: <span class="ͼx cm-semantic-token"><span class="ͼx">55</span></span>,</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">color</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">Color</span></span>(<span class="ͼx cm-semantic-token"><span class="ͼx">0xFF60A5FA</span></span>),</div><div class="cm-line">            ),</div><div class="cm-line">          ),</div><div class="cm-line"><br></div><div class="cm-line">          <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">SizedBox</span></span>(<span class="ͼt cm-semantic-token"><span class="ͼt">height</span></span>: <span class="ͼx cm-semantic-token"><span class="ͼx">20</span></span>),</div><div class="cm-line"><br></div><div class="cm-line">          <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">Text</span></span>(</div><div class="cm-line">            <span class="ͼv cm-semantic-token"><span class="ͼv">'No Tasks Yet!'</span></span>,</div><div class="cm-line">            <span class="ͼt cm-semantic-token"><span class="ͼt">style</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">TextStyle</span></span>(</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">color</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">Colors</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">white</span></span>,</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">fontSize</span></span>: <span class="ͼx cm-semantic-token"><span class="ͼx">21</span></span>,</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">fontWeight</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">FontWeight</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">bold</span></span>,</div><div class="cm-line">            ),</div><div class="cm-line">          ),</div><div class="cm-line"><br></div><div class="cm-line">          <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">SizedBox</span></span>(<span class="ͼt cm-semantic-token"><span class="ͼt">height</span></span>: <span class="ͼx cm-semantic-token"><span class="ͼx">8</span></span>),</div><div class="cm-line"><br></div><div class="cm-line">          <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">Text</span></span>(</div><div class="cm-line">            <span class="ͼv cm-semantic-token"><span class="ͼv">'Add your first task and start organizing your day.'</span></span>,</div><div class="cm-line">            <span class="ͼt cm-semantic-token"><span class="ͼt">textAlign</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">TextAlign</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">center</span></span>,</div><div class="cm-line">            <span class="ͼt cm-semantic-token"><span class="ͼt">style</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">TextStyle</span></span>(<span class="ͼt cm-semantic-token"><span class="ͼt">color</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">Colors</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">white54</span></span>, <span class="ͼt cm-semantic-token"><span class="ͼt">fontSize</span></span>: <span class="ͼx cm-semantic-token"><span class="ͼx">13</span></span>),</div><div class="cm-line">          ),</div><div class="cm-line"><br></div><div class="cm-line">          <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">SizedBox</span></span>(<span class="ͼt cm-semantic-token"><span class="ͼt">height</span></span>: <span class="ͼx cm-semantic-token"><span class="ͼx">15</span></span>),</div><div class="cm-line"><br></div><div class="cm-line">          <span class="ͼp cm-semantic-token"><span class="ͼp">const</span></span> <span class="ͼu cm-semantic-token"><span class="ͼt">Text</span></span>(</div><div class="cm-line">            <span class="ͼv cm-semantic-token"><span class="ͼv">'Tap + to get started'</span></span>,</div><div class="cm-line">            <span class="ͼt cm-semantic-token"><span class="ͼt">style</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">TextStyle</span></span>(</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">color</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">Color</span></span>(<span class="ͼx cm-semantic-token"><span class="ͼx">0xFF60A5FA</span></span>),</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">fontSize</span></span>: <span class="ͼx cm-semantic-token"><span class="ͼx">13</span></span>,</div><div class="cm-line">              <span class="ͼt cm-semantic-token"><span class="ͼt">fontWeight</span></span>: <span class="ͼu cm-semantic-token"><span class="ͼt">FontWeight</span></span>.<span class="ͼ15 cm-semantic-token"><span class="ͼt">w600</span></span>,</div><div class="cm-line">            ),</div><div class="cm-line">          ),</div><div class="cm-line">        ],</div><div class="cm-line">      ),</div><div class="cm-line">    );</div><div class="cm-line">  }</div><div class="cm-line"><br></div><div class="cm-line">  <span class="ͼ10 cm-semantic-token">@</span><span class="ͼ15 cm-semantic-token"><span class="ͼt">override</span></span></div><div class="cm-line">  <span class="ͼp cm-semantic-token"><span class="ͼp">void</span></span> <span class="ͼt cm-semantic-token"><span class="ͼt">dispose</span></span>() {</div><div class="cm-line">    <span class="ͼ15 cm-semantic-token"><span class="ͼt">taskController</span></span>.<span class="ͼt cm-semantic-token"><span class="ͼt">dispose</span></span>();</div><div class="cm-line">    <span class="ͼp cm-semantic-token"><span class="ͼp">super</span></span>.<span class="ͼt cm-semantic-token"><span class="ͼt">dispose</span></span>();</div><div class="cm-line">  }</div><div class="cm-line cm-activeLine">}</div><div class="cm-line"><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms; animation-name: cm-blink2;"><div class="cm-cursor cm-cursor-primary" style="left: 76.625px; top: 11373.6px; height: 16px;"></div></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2; display: none;"></div></div></div></div></div><div class="pubspec-editor-actions-host"></div><div class="main-editor-actions-host"><div class="editor-floating-action main-editor-actions" aria-busy="false"><button class="dp-button" title="Run Dart or build Flutter preview" aria-label="Run">Run</button></div></div><div class="editor-error-toast-host"></div></div></div><div class="drag-handle vertical"></div><div class="bottom-panel" style="flex-grow: 0.15000000000000013; flex-basis: 0"><div class="bottom-panel-tabs" role="tablist"><button class="bottom-panel-tab active" role="tab" aria-selected="true"><span class="bottom-panel-tab-label">Problems</span><span class="bottom-panel-tab-count">5</span></button><button class="bottom-panel-tab" role="tab" aria-selected="false"><span class="bottom-panel-tab-label">Console</span><span class="bottom-panel-indicator error" role="img" aria-label="Console contains errors" title="Console contains errors">E</span></button><div class="bottom-panel-tabs-spacer"></div><button class="icon-button bottom-panel-btn" aria-label="Hide bottom panel"><span class="material-symbols-outlined" style="font-size: 20px">expand_more</span></button></div><div id="bottom-panel-content" class="bottom-panel-content"><div class="problems-panel"><div class="problems-list"><div class="problem-row info" title="Info: 'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre.
-Try replacing the use of the deprecated member with the replacement. (lib/main.dart:1:1)" tabindex="0"><span class="bottom-panel-indicator info" role="img" aria-label="Info" title="Info">I</span><span class="problem-message">'package:flutter/material.dart' is deprecated and shouldn't be used. Use package:material_ui/material_ui.dart instead. This feature was deprecated after v3.47.0-0.0.pre.
-Try replacing the use of the deprecated member with the replacement.</span><span class="problem-actions"><span class="problem-location">lib/main.dart:1:1</span></span></div><div class="problem-row info" title="Info: 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss.
-Try replacing the use of the deprecated member with the replacement. (lib/main.dart:329:48)" tabindex="0"><span class="bottom-panel-indicator info" role="img" aria-label="Info" title="Info">I</span><span class="problem-message">'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss.
-Try replacing the use of the deprecated member with the replacement.</span><span class="problem-actions"><span class="problem-location">lib/main.dart:329:48</span></span></div><div class="problem-row info" title="Info: 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss.
-Try replacing the use of the deprecated member with the replacement. (lib/main.dart:366:48)" tabindex="0"><span class="bottom-panel-indicator info" role="img" aria-label="Info" title="Info">I</span><span class="problem-message">'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss.
-Try replacing the use of the deprecated member with the replacement.</span><span class="problem-actions"><span class="problem-location">lib/main.dart:366:48</span></span></div><div class="problem-row info" title="Info: 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss.
-Try replacing the use of the deprecated member with the replacement. (lib/main.dart:459:32)" tabindex="0"><span class="bottom-panel-indicator info" role="img" aria-label="Info" title="Info">I</span><span class="problem-message">'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss.
-Try replacing the use of the deprecated member with the replacement.</span><span class="problem-actions"><span class="problem-location">lib/main.dart:459:32</span></span></div><div class="problem-row info" title="Info: 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss.
-Try replacing the use of the deprecated member with the replacement. (lib/main.dart:460:32)" tabindex="0"><span class="bottom-panel-indicator info" role="img" aria-label="Info" title="Info">I</span><span class="problem-message">'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss.
-Try replacing the use of the deprecated member with the replacement.</span><span class="problem-actions"><span class="problem-location">lib/main.dart:460:32</span></span></div></div></div></div></div></main><div class="drag-handle horizontal"></div><div class="preview-container" style="flex-grow: 0.30000000000000004; flex-basis: 0"><aside class="preview-rail hidden"><button class="icon-button" aria-label="Show preview"><span class="material-symbols-outlined" style="font-size: 18px">preview</span></button></aside><div class="preview-toolbar has-device-mode"><button class="icon-button" aria-label="Hide preview"><span class="material-symbols-outlined" style="font-size: 18px">chevron_right</span></button><div class="preview-controls"><div class="button-group"><button class="runtime-button" title="Reload preview from lib/main.dart" aria-label="Reload"><span class="material-symbols-outlined" style="font-size: 18px">bolt</span><span class="runtime-button-label">Reload</span></button><button class="runtime-button" title="Restart preview from lib/main.dart" aria-label="Restart"><span class="material-symbols-outlined" style="font-size: 18px">restart_alt</span><span class="runtime-button-label">Restart</span></button><button class="runtime-button" title="Stop preview" aria-label="Stop"><span class="material-symbols-outlined" style="font-size: 18px">stop</span><span class="runtime-button-label">Stop</span></button></div><div class="button-group"><div class="dropdown dropdown-menu-anchor" data-expanded="false"><button class="device-dropdown-trigger" title="Switch preview device mode" aria-label="Mobile"><span class="material-symbols-outlined" style="font-size: 18px">smartphone</span><span class="device-dropdown-label">Mobile</span><span class="material-symbols-outlined" style="font-size: 16px">keyboard_arrow_down</span></button></div><button class="icon-button"><span class="material-symbols-outlined" style="font-size: 18px">screen_rotation</span></button></div></div></div><div class="preview-content mode-mobile" style="--device-width: 390px; --device-height: 846px; --device-scale: 0.6757;"><div class="preview"><div style="width: 100%; height: 100%;"><iframe sandbox="allow-scripts allow-same-origin" src="./To Do List App_files/saved_resource.html"></iframe></div></div></div></div></div></div></div><div id="status-bar-panel" class="panel-visibility"><footer class="app-footer"><div class="app-footer-buttons"><button class="icon-button" aria-label="Keyboard shortcuts"><span class="material-symbols-outlined" style="font-size: 18px">keyboard</span></button><a class="app-footer-link" rel="noopener noreferrer" href="https://dart.dev/tools/dartpad/privacy" target="_blank">Privacy notice<span class="material-symbols-outlined" style="font-size: 14px">open_in_new</span></a><a class="app-footer-link" rel="noopener noreferrer" href="https://github.com/dart-lang/dart-pad/issues/new?template=4-dartpad-preview-issue.yml" target="_blank">Feedback<span class="material-symbols-outlined" style="font-size: 14px">open_in_new</span></a></div><div class="app-footer-spacer"></div><div class="task-status-anchor"><button class="task-status-trigger" aria-label="Task status: Starting preview, 3.0s" aria-expanded="false" aria-controls="task-status-popover"><span class="task-status-icon succeeded" aria-label="Succeeded"><span class="material-symbols-outlined" style="font-size: 16px">check</span></span><span class="task-status-label">Starting preview</span><span class="task-status-duration" aria-hidden="true">3.0s</span></button></div><div class="dropdown dropdown-menu-anchor" data-expanded="false"><button class="app-footer-sdk-trigger" aria-label="Select DartPad SDK (Flutter 3.51.0 • Dart 3.14.0)" title="Select DartPad SDK"><svg class="app-footer-info-icon" aria-hidden="true" focusable="false" fill="currentColor" viewBox="0 0 24 24" width="14px" height="14px"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path></svg><span class="app-footer-sdk-label">Flutter 3.51.0 • Dart 3.14.0</span></button></div><span class="app-footer-channel" role="img" aria-label="Beta channel"><span class="material-symbols-outlined" style="font-size: 14px" aria-hidden="true">tune</span><span class="app-footer-channel-label">Beta channel</span></span></footer></div></div><div class="context-menu" style="opacity: 0; left: 0.0px; top: 0.0px; display: none" role="menu" tabindex="-1"></div></div></div>
+  TodoTask({required this.id, required this.title, this.isCompleted = false});
+}
 
-        <button aria-hidden="true" class="glue-footer__link glue-cookie-notification-bar-control">Cookies management controls</button>
-        <script defer="" src="./To Do List App_files/cookienotificationbar.min.js.download" data-glue-cookie-notification-bar-category="2B"></script>
-    
+// ================= HOME PAGE =================
 
-</body></html>
+class TodoHomePage extends StatefulWidget {
+  const TodoHomePage({super.key});
+
+  @override
+  State<TodoHomePage> createState() => _TodoHomePageState();
+}
+
+class _TodoHomePageState extends State<TodoHomePage> {
+  final TextEditingController taskController = TextEditingController();
+
+  final List<TodoTask> tasks = [];
+
+  int nextId = 0;
+
+  TodoTask? deletedTask;
+  int? deletedIndex;
+
+  // ================= TASK COUNTERS =================
+
+  int getCompletedTasks() {
+    return tasks.where((task) => task.isCompleted).length;
+  }
+
+  int getRemainingTasks() {
+    return tasks.where((task) => !task.isCompleted).length;
+  }
+
+  int getTotalTasks() {
+    return tasks.length;
+  }
+
+  // ================= ADD TASK =================
+
+  void addTask() {
+    String title = taskController.text.trim();
+
+    if (title.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter a task!'),
+          backgroundColor: Colors.redAccent,
+        ),
+      );
+      return;
+    }
+
+    setState(() {
+      tasks.add(TodoTask(id: nextId++, title: title));
+
+      taskController.clear();
+    });
+
+    FocusScope.of(context).unfocus();
+  }
+
+  // ================= TOGGLE TASK =================
+
+  void toggleTask(int index) {
+    setState(() {
+      tasks[index].isCompleted = !tasks[index].isCompleted;
+    });
+  }
+
+  // ================= DELETE TASK =================
+
+  void deleteTask(TodoTask task, int index) {
+    setState(() {
+      deletedTask = task;
+      deletedIndex = index;
+
+      tasks.remove(task);
+    });
+
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('"${task.title}" deleted'),
+        backgroundColor: const Color(0xFF1E293B),
+        duration: const Duration(seconds: 4),
+        action: SnackBarAction(
+          label: 'UNDO',
+          textColor: const Color(0xFF60A5FA),
+          onPressed: undoDelete,
+        ),
+      ),
+    );
+  }
+
+  // ================= UNDO DELETE =================
+
+  void undoDelete() {
+    if (deletedTask == null) return;
+
+    setState(() {
+      int index = deletedIndex ?? tasks.length;
+
+      if (index > tasks.length) {
+        index = tasks.length;
+      }
+
+      tasks.insert(index, deletedTask!);
+
+      deletedTask = null;
+      deletedIndex = null;
+    });
+  }
+
+  // ================= UI =================
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 650),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // HEADER
+
+                  buildHeader(),
+
+                  const SizedBox(height: 25),
+
+                  // STATISTICS
+                  buildStatistics(),
+
+                  const SizedBox(height: 25),
+
+                  // ADD TASK SECTION
+                  buildAddTask(),
+
+                  const SizedBox(height: 25),
+
+                  // TASK LIST HEADER
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'My Tasks',
+                        style: TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+
+                      Text(
+                        '${getRemainingTasks()} remaining',
+                        style: const TextStyle(
+                          color: Color(0xFF60A5FA),
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  // TASK LIST
+                  Expanded(
+                    child: tasks.isEmpty
+                        ? buildEmptyState()
+                        : ListView.builder(
+                            itemCount: tasks.length,
+                            itemBuilder: (context, index) {
+                              final task = tasks[index];
+
+                              return buildTaskCard(task, index);
+                            },
+                          ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: addTask,
+        backgroundColor: const Color(0xFF2563EB),
+        foregroundColor: Colors.white,
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+
+  // ================= HEADER =================
+
+  Widget buildHeader() {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(13),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFF2563EB), Color(0xFF7C3AED)],
+            ),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: const Icon(
+            Icons.check_circle_outline,
+            size: 30,
+            color: Colors.white,
+          ),
+        ),
+
+        const SizedBox(width: 15),
+
+        const Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'My To-Do List',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+
+              SizedBox(height: 5),
+
+              Text(
+                'Organize your day, achieve your goals.',
+                style: TextStyle(fontSize: 12, color: Colors.white60),
+              ),
+            ],
+          ),
+        ),
+
+        const Icon(Icons.notifications_none, color: Colors.white70, size: 27),
+      ],
+    );
+  }
+
+  // ================= STATISTICS =================
+
+  Widget buildStatistics() {
+    return Row(
+      children: [
+        Expanded(
+          child: buildStatCard(
+            'Total Tasks',
+            getTotalTasks().toString(),
+            Icons.assignment_outlined,
+            const Color(0xFF3B82F6),
+          ),
+        ),
+
+        const SizedBox(width: 10),
+
+        Expanded(
+          child: buildStatCard(
+            'Completed',
+            getCompletedTasks().toString(),
+            Icons.check_circle_outline,
+            const Color(0xFF22C55E),
+          ),
+        ),
+
+        const SizedBox(width: 10),
+
+        Expanded(
+          child: buildStatCard(
+            'Remaining',
+            getRemainingTasks().toString(),
+            Icons.pending_actions,
+            const Color(0xFFF59E0B),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget buildStatCard(String title, String value, IconData icon, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 10),
+      decoration: BoxDecoration(
+        color: const Color(0xFF17233D),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.white.withOpacity(0.06)),
+      ),
+      child: Column(
+        children: [
+          Icon(icon, color: color, size: 23),
+
+          const SizedBox(height: 10),
+
+          Text(
+            value,
+            style: const TextStyle(
+              fontSize: 23,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+
+          const SizedBox(height: 5),
+
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 10, color: Colors.white60),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ================= ADD TASK =================
+
+  Widget buildAddTask() {
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: const Color(0xFF17233D),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: Colors.white.withOpacity(0.06)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Add New Task',
+            style: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+
+          const SizedBox(height: 15),
+
+          TextField(
+            controller: taskController,
+            onSubmitted: (_) => addTask(),
+            style: const TextStyle(color: Colors.white, fontSize: 14),
+            decoration: InputDecoration(
+              hintText: 'What needs to be done?',
+              hintStyle: const TextStyle(color: Colors.white38),
+              prefixIcon: const Icon(Icons.edit_note, color: Color(0xFF60A5FA)),
+              filled: true,
+              fillColor: const Color(0xFF0B1120),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide.none,
+              ),
+              contentPadding: const EdgeInsets.all(16),
+            ),
+          ),
+
+          const SizedBox(height: 13),
+
+          SizedBox(
+            width: double.infinity,
+            height: 48,
+            child: ElevatedButton.icon(
+              onPressed: addTask,
+              icon: const Icon(Icons.add),
+              label: const Text(
+                'Add Task',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF2563EB),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ================= TASK CARD =================
+
+  Widget buildTaskCard(TodoTask task, int index) {
+    return Dismissible(
+      key: ValueKey(task.id),
+      direction: DismissDirection.endToStart,
+
+      background: Container(
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.only(right: 22),
+        alignment: Alignment.centerRight,
+        decoration: BoxDecoration(
+          color: Colors.redAccent,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Icon(Icons.delete_outline, color: Colors.white, size: 28),
+      ),
+
+      onDismissed: (_) {
+        deleteTask(task, index);
+      },
+
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: task.isCompleted
+              ? const Color(0xFF102D2B)
+              : const Color(0xFF17233D),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: task.isCompleted
+                ? Colors.green.withOpacity(0.25)
+                : Colors.white.withOpacity(0.06),
+          ),
+        ),
+
+        child: Row(
+          children: [
+            Checkbox(
+              value: task.isCompleted,
+              activeColor: const Color(0xFF22C55E),
+              checkColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+              onChanged: (_) {
+                toggleTask(index);
+              },
+            ),
+
+            const SizedBox(width: 8),
+
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    task.title,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: task.isCompleted ? Colors.white54 : Colors.white,
+                      decoration: task.isCompleted
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none,
+                    ),
+                  ),
+
+                  const SizedBox(height: 6),
+
+                  Text(
+                    task.isCompleted ? 'Completed' : 'Pending',
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: task.isCompleted
+                          ? Colors.greenAccent
+                          : Colors.orangeAccent,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            Icon(
+              task.isCompleted ? Icons.check_circle : Icons.circle_outlined,
+              color: task.isCompleted ? Colors.greenAccent : Colors.white24,
+              size: 20,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // ================= EMPTY STATE =================
+
+  Widget buildEmptyState() {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(25),
+            decoration: BoxDecoration(
+              color: const Color(0xFF17233D),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(
+              Icons.checklist_rounded,
+              size: 55,
+              color: Color(0xFF60A5FA),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          const Text(
+            'No Tasks Yet!',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 21,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          const SizedBox(height: 8),
+
+          const Text(
+            'Add your first task and start organizing your day.',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white54, fontSize: 13),
+          ),
+
+          const SizedBox(height: 15),
+
+          const Text(
+            'Tap + to get started',
+            style: TextStyle(
+              color: Color(0xFF60A5FA),
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    taskController.dispose();
+    super.dispose();
+  }
+}
